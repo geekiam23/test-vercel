@@ -1,3 +1,5 @@
+import ServerUserInfo from "@/components/ServerUserInfo";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
@@ -17,17 +19,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <header className="p-4">
-          <h2>
-            <Link href="/">Uplift Procure</Link>
-          </h2>
-          <nav>
-            <Link href="/vendors">Vendors</Link>
-          </nav>
-        </header>
-        <main className="p-4">{children}</main>
-      </body>
+      <UserProvider>
+        <body className={inter.className}>
+          <header className="p-4">
+            <h2>
+              <Link href="/">Uplift Procure</Link>
+            </h2>
+            <nav>
+              <Link href="/vendors">Vendors</Link>
+            </nav>
+            <div>
+              <a href="/api/auth/login">Log in</a>
+              <a href="/api/auth/logout">Log out</a>
+              <ServerUserInfo />
+            </div>
+          </header>
+          <main className="p-4">{children}</main>
+        </body>
+      </UserProvider>
     </html>
   );
 }
