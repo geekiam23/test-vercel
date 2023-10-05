@@ -11,6 +11,8 @@ export default async function ServerUserInfo() {
         <>
           {user.picture && (
             <Image
+              width={20}
+              height={20}
               src={user.picture}
               alt={user.name ? user.name : "profile pic"}
             />
