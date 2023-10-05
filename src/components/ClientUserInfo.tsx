@@ -13,7 +13,12 @@ export default function ClientUserInfo() {
     <div>
       {user && (
         <>
-          {user.picture && <Image src={user.picture} alt={user.name} />}
+          {user.picture && (
+            <Image
+              src={user.picture}
+              alt={user.name ? user.name : "profile pic"}
+            />
+          )}
           <h2>{user.name}</h2>
           <p>{user.email}</p>
         </>
