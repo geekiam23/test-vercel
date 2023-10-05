@@ -20,15 +20,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <UserProvider>
-        <body className={inter.className}>
-          <header className="p-4">
+        <body className={`${inter.className} flex flex-col`}>
+          <header className="p-4 flex flex-1">
             <h2>
               <Link href="/">Uplift Procure</Link>
             </h2>
             <nav>
               <Link href="/vendors">Vendors</Link>
             </nav>
-            <div>
+            <div className="flex flex-1 justify-end">
               <a href="/api/auth/login">Log in</a>
               <a href="/api/auth/logout">Log out</a>
               <ServerUserInfo />
