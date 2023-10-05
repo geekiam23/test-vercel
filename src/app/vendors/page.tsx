@@ -1,3 +1,5 @@
+"use client"; // Error components must be Client Components
+
 import { Session, getSession, withPageAuthRequired } from "@auth0/nextjs-auth0";
 
 export default withPageAuthRequired(
